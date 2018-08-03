@@ -50,12 +50,8 @@ namespace CDMReportClass
                     rowNo++;                    
                     foreach (object colData in dr.ItemArray)
                     {
-                        export = colData.ToString().Trim();
-                        if (dataColNo == 0)
-                        {
-                            //this is intended to trap invalid XML chars  - &#x1F   in particular although it's valid in XML 1.1
-                            export = Regex.Replace(export, re, "");
-                        }
+                        //this is intended to trap invalid XML 1.0 chars  - &#x1F in particular (although it's valid in XML 1.1)
+                        export = Regex.Replace(colData.ToString().Trim(), re, "");
 
                         if (dataColNo == 6) //Manufacturer Catalog Number 
                         {

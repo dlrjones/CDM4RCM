@@ -42,7 +42,7 @@ Start Time 12:30 PM
                         _cdmrcm.InitReport();
                     }                        
                 }else
-                {
+                {       //********not used
                     //_cdma = new CDMMedAssets();
                     //_cdma.ReportType = 0;
                     //_cdma.InitReport();

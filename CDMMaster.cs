@@ -63,10 +63,7 @@ namespace CDMReportClass
         protected void EmptyDataSet()
         {
             export = GetDate() + "\t\tNothing to report" + Environment.NewLine;
-            if (File.Exists(backupPath + logFile))
-                File.AppendAllText(backupPath + logFile, export);
-            else
-                File.WriteAllText(backupPath + logFile, export);
+            lm.Write(export);           
         }
 
         protected void AppendText(int rowCount,bool createMetaFile)
@@ -74,7 +71,6 @@ namespace CDMReportClass
             lm.Write("Processed " + rowCount + " records");
             if (createMetaFile)
             {                    
-               File.WriteAllText(backupPath + currentFileName + ".DONE", "");
                lm.Write(currentFileName + ".DONE");
             }
         }
